@@ -1,3 +1,73 @@
-[gd_scene format=3 uid="uid://bhn03bdqevmyr"]
+[gd_scene load_steps=3 format=3 uid="uid://bhn03bdqevmyr"]
 
-[node name="prueba" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://ksw0ye7k7xx2" path="res://Scenes/UI/MainMenu/bg.jpeg" id="1_les83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rqq1"]
+bg_color = Color(0.095, 0.636, 0.945, 0.583)
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.498039, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_les83")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -81.0
+offset_right = 142.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.987097)
+theme_override_constants/separation = 34
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
+text = "JUGAR"
+
+[node name="Campaign" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
+text = "CAMPAÑA"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
+text = "OPCIONES"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
+text = "SALIR"
