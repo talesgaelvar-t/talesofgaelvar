@@ -1,6 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhn03bdqevmyr"]
+[gd_scene load_steps=8 format=3 uid="uid://bhn03bdqevmyr"]
 
+[ext_resource type="Script" uid="uid://dagnqbpdbb1db" path="res://Scripts/Ui/main_menu.gd" id="1_7rqq1"]
 [ext_resource type="Texture2D" uid="uid://ksw0ye7k7xx2" path="res://Scenes/UI/MainMenu/bg.jpeg" id="1_les83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwdte"]
+bg_color = Color(0.231373, 0.643137, 0.858824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 24.0
+expand_margin_top = 24.0
+expand_margin_right = 24.0
+expand_margin_bottom = 24.0
+anti_aliasing_size = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rqq1"]
 bg_color = Color(0.095, 0.636, 0.945, 0.583)
@@ -9,6 +22,45 @@ expand_margin_top = 16.0
 expand_margin_right = 16.0
 expand_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehq06"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.232562, 0.643278, 0.859485, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 24.0
+expand_margin_top = 24.0
+expand_margin_right = 24.0
+expand_margin_bottom = 24.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nukq"]
+bg_color = Color(0.231373, 0.643137, 0.858824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 24.0
+expand_margin_top = 24.0
+expand_margin_right = 24.0
+expand_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc2ed"]
+bg_color = Color(0.231373, 0.643137, 0.858824, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 24.0
+expand_margin_top = 24.0
+expand_margin_right = 24.0
+expand_margin_bottom = 24.0
+anti_aliasing_size = 2.0
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7rqq1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -43,10 +96,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -81.0
-offset_right = 142.0
-offset_bottom = 100.0
+offset_left = -121.0
+offset_top = -89.0
+offset_right = 145.0
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.987097)
@@ -54,20 +107,31 @@ theme_override_constants/separation = 34
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_gwdte")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
 text = "JUGAR"
 
 [node name="Campaign" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehq06")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
 text = "CAMPAÑA"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nukq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
 text = "OPCIONES"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_tc2ed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
 text = "SALIR"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Campaign" to="." method="_on_campaign_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
