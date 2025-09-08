@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhn03bdqevmyr"]
+[gd_scene load_steps=8 format=3 uid="uid://ckaef3klknmsq"]
 
-[ext_resource type="Script" uid="uid://dagnqbpdbb1db" path="res://Scripts/Ui/Menu/main_menu.gd" id="1_7rqq1"]
-[ext_resource type="Texture2D" uid="uid://ksw0ye7k7xx2" path="res://Scenes/UI/MainMenu/bg.jpeg" id="1_les83"]
+[ext_resource type="Script" uid="uid://kwtl3sp046jm" path="res://Scripts/Ui/Menu/options.gd" id="1_f6mud"]
+[ext_resource type="Texture2D" uid="uid://ksw0ye7k7xx2" path="res://Scenes/UI/MainMenu/bg.jpeg" id="2_g1vfv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwdte"]
 bg_color = Color(0.231373, 0.643137, 0.858824, 1)
@@ -61,14 +61,14 @@ expand_margin_right = 24.0
 expand_margin_bottom = 24.0
 anti_aliasing_size = 2.0
 
-[node name="Menu" type="Control"]
+[node name="Options" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7rqq1")
+script = ExtResource("1_f6mud")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -86,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_les83")
+texture = ExtResource("2_g1vfv")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -105,33 +105,35 @@ grow_vertical = 2
 scale = Vector2(1, 0.987097)
 theme_override_constants/separation = 34
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Volume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/hover = SubResource("StyleBoxFlat_gwdte")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
-text = "JUGAR"
+text = "VOLUMEN"
 
-[node name="Campaign" type="Button" parent="VBoxContainer"]
+[node name="Resolution" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/hover = SubResource("StyleBoxFlat_ehq06")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
-text = "CAMPAÑA"
+text = "RESOLUCION"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Guide" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_7nukq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
-text = "OPCIONES"
+text = "GUIA
+"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_tc2ed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7rqq1")
-text = "SALIR"
+text = "ATRAS"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Campaign" to="." method="_on_campaign_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolution" to="." method="_on_campaign_pressed"]
+[connection signal="pressed" from="VBoxContainer/Guide" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_quit_pressed"]
